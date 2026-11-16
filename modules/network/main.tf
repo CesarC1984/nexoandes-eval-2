@@ -9,15 +9,6 @@ resource "aws_vpc" "main" {
 
 }
 
-resource "aws_subnet" "main" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = var.subnet_cidr
-
-  tags = {
-    Name = "Main"
-  }
-
-}
 
 resource "aws_internet_gateway" "gw" {
 
@@ -43,7 +34,32 @@ resource "aws_route_table" "public" {
 
 }
 
-resource "aws_route_table_association" "public" {
-  subnet_id      = aws_subnet.main.id
+resource "aws_subnet" "subnet_a" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = var.subnet_a_cidr
+  availability_zone = var.availability_zones[0]
+
+  tags = {
+    Name = "nexoandes-subnet-a"
+  }
+}
+
+resource "aws_subnet" "subnet_b" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = var.subnet_b_cidr
+  availability_zone = var.availability_zones[1]
+
+  tags = {
+    Name = "nexoandes-subnet-b"
+  }
+}
+
+resource "aws_route_table_association" "subnet_a" {
+  subnet_id      = aws_subnet.subnet_a.id
+  route_table_id = aws_route_table.public.id
+}
+
+resource "aws_route_table_association" "subnet_b" {
+  subnet_id      = aws_subnet.subnet_b.id
   route_table_id = aws_route_table.public.id
 }
