@@ -6,3 +6,9 @@ module "network" {
   subnet_b_cidr      = var.subnet_b_cidr
   availability_zones = var.availability_zones
 }
+
+module "security" {
+  source = "./modules/security"
+
+  vpc_id = module.network.vpc_id
+}
