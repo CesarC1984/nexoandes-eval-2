@@ -15,7 +15,6 @@ export AWS_SESSION_TOKEN
 
 
 export AWS_DEFAULT_REGION="us-east-1"
-
 echo "Credenciales AWS configuradas."
 
 echo "Revisando credenciales AWS"

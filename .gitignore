@@ -3,11 +3,13 @@
 *.tfstate
 *.tfstate.*
 *.tfplan
+tfplan
 crash.log
 override.tf
 override.tf.json
 *_override.tf
 *_override.tf.json
+terraform.tfvars
 
 # Credenciales y secretos
 *.pem
@@ -17,5 +19,10 @@ override.tf.json
 
 # Sistema operativo y editor
 .DS_Store
-Thumbs.db
 .vscode/
+
+# Logs de Terraform
+crash.*.log
+
+# Scripts locales de credenciales
+scripts/aws_credenciales.sh

@@ -16,12 +16,6 @@ variable "subnet_b_cidr" {
 variable "availability_zones" {
   description = "Zonas de disponibilidad para las subredes"
   type        = list(string)
-}
-
-
-variable "availability_zones" {
-  description = "Zonas de disponibilidad para las subredes"
-  type        = list(string)
 
   validation {
     condition     = length(var.availability_zones) == 2 && length(distinct(var.availability_zones)) == 2
