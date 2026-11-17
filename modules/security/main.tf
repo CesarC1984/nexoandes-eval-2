@@ -40,6 +40,15 @@ resource "aws_security_group" "ec2" {
   description = "Security Group para las instancias EC2"
   vpc_id      = var.vpc_id
 
+  ingress {
+    description     = "Permite trafico HTTP sólo desde el ALB"
+    from_port       = 80
+    to_port         = 80
+    protocol        = "tcp"
+    security_groups = [aws_security_group.alb.id]
+  }
+
+
   tags = {
     Name      = "na-u2-c50-a02-sg-ec2"
     Proyecto  = "NexoAndes"
@@ -49,3 +58,4 @@ resource "aws_security_group" "ec2" {
     Proveedor = "AWS"
   }
 }
+
