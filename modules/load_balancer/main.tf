@@ -1,17 +1,17 @@
 ##parámetro "internals = false" indica que el ALB será de acceso publico
 ##load_balancer_type = "application" parámetro indica que el ALB será de capa 7
 resource "aws_lb" "main" {
-  name               = "na-u2-c50-a02-alb"
+  name               = "na-u2-c50-a002-alb"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [var.alb_security_group_id]
   subnets            = var.subnet_ids
 
   tags = {
-    Name      = "na-u2-c50-a02-alb"
+    Name      = "na-u2-c50-a002-alb"
     Proyecto  = "NexoAndes"
     Fase      = "U2"
-    Alumno    = "a02"
+    Alumno    = "a002"
     Curso     = "c50"
     Proveedor = "AWS"
   }
@@ -20,7 +20,7 @@ resource "aws_lb" "main" {
 #Crea el target group 'main' y establece los intervalos de health check.
 #matcher, indica si la respuesta es "200" se considera OK.
 resource "aws_lb_target_group" "main" {
-  name        = "na-u2-c50-a02-tg"
+  name        = "na-u2-c50-a002-tg"
   port        = 80
   protocol    = "HTTP"
   vpc_id      = var.vpc_id
@@ -38,10 +38,10 @@ resource "aws_lb_target_group" "main" {
   }
 
   tags = {
-    Name      = "na-u2-c50-a02-tg"
+    Name      = "na-u2-c50-a002-tg"
     Proyecto  = "NexoAndes"
     Fase      = "U2"
-    Alumno    = "a02"
+    Alumno    = "a002"
     Curso     = "c50"
     Proveedor = "AWS"
   }

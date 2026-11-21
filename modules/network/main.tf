@@ -2,7 +2,7 @@ locals {
   common_tags = {
     Proyecto  = "NexoAndes"
     Fase      = "U2"
-    Alumno    = "a02"
+    Alumno    = "a002"
     Curso     = "c50"
     Proveedor = "AWS"
   }
@@ -15,7 +15,7 @@ resource "aws_vpc" "main" {
   enable_dns_hostnames = true
 
   tags = merge(local.common_tags, {
-    Name = "na-u2-c50-a02-vpc"
+    Name = "na-u2-c50-a002-vpc"
   })
 
 }
@@ -26,7 +26,7 @@ resource "aws_internet_gateway" "gw" {
   vpc_id = aws_vpc.main.id
 
   tags = merge(local.common_tags, {
-    Name = "na-u2-c50-a02-igw"
+    Name = "na-u2-c50-a002-igw"
   })
 }
 
@@ -40,7 +40,7 @@ resource "aws_route_table" "public" {
   }
 
   tags = merge(local.common_tags, {
-    Name = "na-u2-c50-a02-rt-public"
+    Name = "na-u2-c50-a002-rt-public"
   })
 }
 
@@ -51,7 +51,7 @@ resource "aws_subnet" "subnet_a" {
   map_public_ip_on_launch = true
 
   tags = merge(local.common_tags, {
-    Name = "na-u2-c50-a02-subnet-a"
+    Name = "na-u2-c50-a002-subnet-a"
   })
 }
 
@@ -62,7 +62,7 @@ resource "aws_subnet" "subnet_b" {
   map_public_ip_on_launch = true
 
   tags = merge(local.common_tags, {
-    Name = "na-u2-c50-a02-subnet-b"
+    Name = "na-u2-c50-a002-subnet-b"
   })
 }
 
