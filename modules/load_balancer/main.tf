@@ -17,7 +17,7 @@ resource "aws_lb" "main" {
   }
 }
 
-#Crea el target group 'main' y establece los intervalos de health check
+#Crea el target group 'main' y establece los intervalos de health check.
 #matcher, indica si la respuesta es "200" se considera OK.
 resource "aws_lb_target_group" "main" {
   name        = "na-u2-c50-a02-tg"

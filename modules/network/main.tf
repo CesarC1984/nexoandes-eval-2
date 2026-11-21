@@ -45,9 +45,10 @@ resource "aws_route_table" "public" {
 }
 
 resource "aws_subnet" "subnet_a" {
-  vpc_id            = aws_vpc.main.id
-  cidr_block        = var.subnet_a_cidr
-  availability_zone = var.availability_zones[0]
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = var.subnet_a_cidr
+  availability_zone       = var.availability_zones[0]
+  map_public_ip_on_launch = true
 
   tags = merge(local.common_tags, {
     Name = "na-u2-c50-a02-subnet-a"
@@ -55,9 +56,10 @@ resource "aws_subnet" "subnet_a" {
 }
 
 resource "aws_subnet" "subnet_b" {
-  vpc_id            = aws_vpc.main.id
-  cidr_block        = var.subnet_b_cidr
-  availability_zone = var.availability_zones[1]
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = var.subnet_b_cidr
+  availability_zone       = var.availability_zones[1]
+  map_public_ip_on_launch = true
 
   tags = merge(local.common_tags, {
     Name = "na-u2-c50-a02-subnet-b"
@@ -73,4 +75,3 @@ resource "aws_route_table_association" "subnet_b" {
   subnet_id      = aws_subnet.subnet_b.id
   route_table_id = aws_route_table.public.id
 }
-
