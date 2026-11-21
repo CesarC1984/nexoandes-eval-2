@@ -41,7 +41,7 @@ resource "aws_security_group" "ec2" {
   vpc_id      = var.vpc_id
 
   ingress {
-    description     = "Permite trafico HTTP sólo desde el ALB"
+    description     = "Permite trafico HTTP solo desde el ALB"
     from_port       = 80
     to_port         = 80
     protocol        = "tcp"
