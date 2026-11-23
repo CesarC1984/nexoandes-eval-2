@@ -39,7 +39,7 @@ resource "aws_launch_template" "main" {
       student        = "a002"
       course         = "c50"
       build_ref      = "edbed51"
-      portal_version = "v1"
+      portal_version = "v2"
     })
   )
 
